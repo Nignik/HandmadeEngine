@@ -1,0 +1,8 @@
+[
+{
+  "directory": "C:/dev/GameEngines/HandmadeEngine/build/debug",
+  "command": "C:\\PROGRA~1\\MICROS~3\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -std:c++latest -MDd /FoHandmadeEngine\\CMakeFiles\\HandmadeEngine.dir\\src\\main.cpp.obj /FdHandmadeEngine\\CMakeFiles\\HandmadeEngine.dir\\ /FS -c C:\\dev\\GameEngines\\HandmadeEngine\\HandmadeEngine\\src\\main.cpp",
+  "file": "C:\\dev\\GameEngines\\HandmadeEngine\\HandmadeEngine\\src\\main.cpp",
+  "output": "HandmadeEngine\\CMakeFiles\\HandmadeEngine.dir\\src\\main.cpp.obj"
+}
+]
