@@ -1,6 +1,0 @@
-# CMake generated Testfile for 
-# Source directory: C:/dev/GameEngines/HandmadeEngine/HandmadeEngine
-# Build directory: C:/dev/GameEngines/HandmadeEngine/build/debug/HandmadeEngine
-# 
-# This file includes the relevant testing commands required for 
-# testing this directory and lists subdirectories to be tested as well.
