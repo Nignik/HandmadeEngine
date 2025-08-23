@@ -7,4 +7,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 enable_testing()
 
-add_subdirectory("HandmadeEngine")
+file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
+add_executable(HandmadeEngine WIN32 ${SOURCES})
+target_include_directories(HandmadeEngine PUBLIC include)

@@ -1,0 +1,15 @@
+// raddbg 0.9.21 project file
+
+recent_file: path: "../../src/Platform/Windows/Window.cpp"
+recent_file: path: "../../src/main.cpp"
+target:
+{
+  executable: "../../build/debug/Debug/HandmadeEngine.exe"
+  working_directory: "../../build/debug/Debug/"
+  enabled: 1
+}
+breakpoint:
+{
+  source_location: "../../src/Platform/Windows/Window.cpp:36:1"
+  hit_count: 1
+}

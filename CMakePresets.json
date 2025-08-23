@@ -2,17 +2,17 @@
   "version": 4,
   "cmakeMinimumRequired": {
     "major": 3,
-    "minor": 26,
+    "minor": 21,
     "patch": 0
   },
   "configurePresets": [
     {
       "name": "default",
       "hidden": true,
-      "generator": "Ninja",
+      "generator": "Visual Studio 17 2022",
       "binaryDir": "${sourceDir}/build/${presetName}",
       "cacheVariables": {
-        "CMAKE_EXPORT_COMPILE_COMMANDS": "YES",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "YES"
       }
     },
     {

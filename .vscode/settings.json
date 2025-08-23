@@ -1,0 +1,10 @@
+{
+  "C_Cpp.clang_format_style": "{ BasedOnStyle: Google, ColumnLimit: 300 }",
+  "editor.defaultFormatter": "ms-vscode.cpptools",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.block": "sameLine",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.function": "sameLine",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.lambda": "sameLine",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.type": "sameLine",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.namespace": "sameLine",
+  "editor.formatOnSave": false
+}
