@@ -2,14 +2,15 @@
 
 static bool running = false;
 
-static Window wnd;
+static Window* wnd;
 
-LRESULT CALLBACK win32WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
+LRESULT CALLBACK wnd_proc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
   LRESULT result = 0;
 
   switch (uMsg) {
     case WM_SIZE:
-      wnd.ResizeDIBSection();
+      if (wnd != nullptr)
+        wnd->ResizeDIBSection();
       break;
     case WM_DESTROY:
       running = false;
@@ -24,22 +25,11 @@ LRESULT CALLBACK win32WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam
       result = DefWindowProc(hWnd, uMsg, wParam, lParam);
       break;
   }
-
   return result;
 }
 
-int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow) {
-  WNDCLASSA windowClass = {};
-  windowClass.style = CS_HREDRAW | CS_VREDRAW;
-  windowClass.lpfnWndProc = win32WndProc;
-  windowClass.hInstance = hInstance;
-  windowClass.hCursor = LoadCursor(nullptr, IDC_ARROW);
-  windowClass.lpszClassName = "Handmade Engine";
-
-  RegisterClassA(&windowClass);
-  HWND hWindow = CreateWindowExA(0, windowClass.lpszClassName, "Handmade Engine", WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, nullptr, nullptr, hInstance, nullptr);
-
-  wnd.InitWindow(hWindow);
+int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE, PSTR, INT iCmdShow) {
+  wnd = new Window(hInstance, iCmdShow, wnd_proc);
 
   MSG msg;
   running = true;
@@ -51,8 +41,12 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hInstPrev, PSTR cmdline, int
       TranslateMessage(&msg);
       DispatchMessage(&msg);
     }
-    wnd.ResizeDIBSection();
-    wnd.PaintWindow({255, 0, 0, 255});
-    wnd.UpdateWindow();
+    wnd->ResizeDIBSection();
+    wnd->PaintWindow({255, 0, 0, 255});
+    wnd->UpdateWindow();
   }
+
+  delete wnd;
+
+  return msg.wParam;
 }

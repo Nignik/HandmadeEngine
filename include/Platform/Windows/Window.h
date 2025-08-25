@@ -1,33 +1,26 @@
 #include <windows.h>
+#include <gdiplus.h>
+#include <utility>
 
-#include <cstdint>
+#include <ScopedPtr.h>
 
-#include "Shapes.h"
 
-struct Bitmap {
-  BITMAPINFO info;
-  uint32_t width, height;
-  void *memory;
-};
-
-struct Pixel {
-  uint8_t r{0}, g{0}, b{0}, a{255};
-};
+#pragma comment (lib,"Gdiplus.lib")
 
 class Window {
- public:
-  Window() = default;
+public:
+  Window(HINSTANCE hInstance, INT iCmdShow, WNDPROC wndProc);
+  ~Window();
 
-  void InitWindow(HWND wndHandle);
   void ResizeDIBSection();
-  void UpdateWindow();
-  void PaintWindow(Pixel color);
+  void UpdateWindow() const;
+  void PaintWindow(const Gdiplus::Color& color);
 
   [[nodiscard]] HWND GetHandle() const;
 
- private:
+private:
   HWND wndHandle_;
-  HDC deviceCtx_;
+  Otac::ScopedPtr<Gdiplus::Bitmap> bitmap_;
   RECT wndRect_;
-  Bitmap bitmap_;
+  ULONG_PTR gdiplusToken_;
 };
